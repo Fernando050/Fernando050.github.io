@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Formulaire d'inscription</h2>
+
+        <form onsubmit="envoyerWhatsApp(event)">
+            <ul class="form-list">
+                <li>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" required>
+                </li>
+
+                <li>
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" required>
+                </li>
+                
+                <li>
+                    <label for="age">Âge</label>
+                    <input type="number" id="age" required>
+                </li>
+
+                <li>
+                    <label for="genre">Genre</label>
+                    <select id="genre" required>
+                        <option value="">-- Choisir --</option>
+                        <option>Masculin</option>
+                        <option>Féminin</option>
+                        <option>Autre</option>
+                    </select>
+                </li>
+
+                <li>
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" required>
+                </li>
+
+                <li>
+                    <button type="submit">S'inscrire</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+<script>
+function envoyerWhatsApp(e) {
+    e.preventDefault();
+
+    let nom = document.getElementById("nom").value;
+    let prenom = document.getElementById("prenom").value;
+    let age = document.getElementById("age").value;
+    let genre = document.getElementById("genre").value;
+    let email = document.getElementById("email").value;
+
+    let message = `Nouvelle inscription:%0A Nom: ${nom}%0A Prénom: ${prenom}%0A Âge: ${age}%0A Genre: ${genre}%0A Email: ${email}`;
+
+    let numero = "50946067866"; // nimewo pa ou
+
+    let url = "https://wa.me/" + numero + "?text=" + message;
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
