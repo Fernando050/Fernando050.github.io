@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.message {
+    font-size: 18px;
+    margin: 15px;
+}
+
+.buttons {
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:first-child {
+    background-color: #28a745;
+    color: white;
+}
+
+button:last-child {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Bouton WhatsApp */
+.whatsapp {
+    background-color: #25D366;
+    color: white;
+    margin-top: 20px;
+}
