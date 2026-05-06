@@ -2,73 +2,41 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title>Pour toi ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h2>Formulaire d'inscription</h2>
+<div class="container">
+    <h1>💖 Salut Edelène</h1>
+    
+    <p class="message">
+        Depi premye fwa mwen wè w, gen yon bagay espesyal mwen santi...
+        Ou fè kè m bat pi vit 💓
+    </p>
 
-        <form onsubmit="envoyerWhatsApp(event)">
-            <ul class="form-list">
-                <li>
-                    <label for="nom">Nom</label>
-                    <input type="text" id="nom" required>
-                </li>
+    <p class="message">
+        Mwen pa pafè, men mwen sensè...
+        E mwen ta renmen konnen si ou ta bay mwen yon chans 😊
+    </p>
 
-                <li>
-                    <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" required>
-                </li>
-                
-                <li>
-                    <label for="age">Âge</label>
-                    <input type="number" id="age" required>
-                </li>
+    <h2>Eske ou vle eseye avè m? ❤️</h2>
 
-                <li>
-                    <label for="genre">Genre</label>
-                    <select id="genre" required>
-                        <option value="">-- Choisir --</option>
-                        <option>Masculin</option>
-                        <option>Féminin</option>
-                        <option>Autre</option>
-                    </select>
-                </li>
-
-                <li>
-                    <label for="email">Adresse Email</label>
-                    <input type="email" id="email" required>
-                </li>
-
-                <li>
-                    <button type="submit">S'inscrire</button>
-                </li>
-            </ul>
-        </form>
+    <div class="buttons">
+        <button onclick="yes()">Wi 😍</button>
+        <button onclick="no()">Non 😢</button>
     </div>
 
-<script>
-function envoyerWhatsApp(e) {
-    e.preventDefault();
+    <p id="response"></p>
 
-    let nom = document.getElementById("nom").value;
-    let prenom = document.getElementById("prenom").value;
-    let age = document.getElementById("age").value;
-    let genre = document.getElementById("genre").value;
-    let email = document.getElementById("email").value;
+    <!-- Bouton WhatsApp -->
+    <a id="whatsappBtn" target="_blank">
+        <button class="whatsapp">💬 Pale avè m sou WhatsApp</button>
+    </a>
 
-    let message = `Nouvelle inscription:%0A Nom: ${nom}%0A Prénom: ${prenom}%0A Âge: ${age}%0A Genre: ${genre}%0A Email: ${email}`;
+</div>
 
-    let numero = "50946067866"; // nimewo pa ou
-
-    let url = "https://wa.me/" + numero + "?text=" + message;
-
-    window.open(url, "_blank");
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
