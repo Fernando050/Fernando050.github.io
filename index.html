@@ -1,42 +1,127 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Pour toi ❤️</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pour Mon Amour ❤️</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>💖 Salut Edelène💖</h1>
-    
-    <p class="message">
-        Depi premye fwa mwen wè w, gen yon bagay espesyal mwen santi...
-        Ou fè kè m bat pi vit 💓
-    </p>
+  <div class="hearts"></div>
 
-    <p class="message">
-        Mwen pa pafè, men mwen sensè...
-        E mwen ta renmen konnen si ou ta bay mwen yon chans 😊
-    </p>
+  <header>
+    <div class="hero">
 
-    <h2>Eske ou vle eseye avè m? ❤️</h2>
+      <h1>❤️ Pour Toi Mrs Jean❤️</h1>
 
-    <div class="buttons">
-        <button onclick="yes()">Wi 😍</button>
-        <button onclick="no()">Non 😢</button>
+      <p>
+        Depuis que tu es entrée dans ma vie,
+        tout est devenu plus beau.
+        Ton sourire illumine mes journées
+        et ton amour rend mon cœur heureux.
+      </p>
+
+      <!-- Mete nimewo WhatsApp ou -->
+      <a
+        class="love-btn"
+        href="https://wa.me/50946067866?text=Mon%20amour%20j'ai%20vu%20ton%20site%20❤️"
+        target="_blank"
+      >
+        Écris-moi sur WhatsApp 💌
+      </a>
+
+    </div>
+  </header>
+
+  <section class="gallery">
+
+    <h2>✨ Nos Moments ✨</h2>
+
+    <div class="photos">
+
+      <div class="photo-card">
+        <img src="image/ed1.jpg?q=80&w=1200&auto=format&fit=crop">
+        <p>Chaque instant avec toi devient magique ❤️</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="image/ed3.jpg?q=80&w=1200&auto=format&fit=crop">
+        <p>Ton sourire est mon plus beau bonheur 💖</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="image/ed2.jpg?q=80&w=1200&auto=format&fit=crop">
+        <p>Je veux rester à tes côtés pour toujours 💕</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="message">
+
+    <div class="message-box">
+
+      <h2>💌 Petit Message Pour Toi</h2>
+
+      <p>
+        Peu importe la distance,
+        peu importe les difficultés,
+        mon cœur choisira toujours le tien.
+        <br><br>
+
+        Tu es spéciale,
+        unique,
+        et précieuse à mes yeux.
+        <br><br>
+
+        Je t’aime infiniment ❤️
+      </p>
+
     </div>
 
-    <p id="response"></p>
+  </section>
 
-    <!-- Bouton WhatsApp -->
-    <a id="whatsappBtn" target="_blank">
-        <button class="whatsapp">💬 Pale avè m sou WhatsApp</button>
-    </a>
+  <footer>
+    Créé avec amour ❤️
+  </footer>
 
-</div>
+  <script>
 
-<script src="script.js"></script>
+    const heartsContainer = document.querySelector('.hearts');
+
+    function createHeart(){
+
+      const heart = document.createElement('div');
+
+      heart.classList.add('heart');
+
+      heart.innerHTML = '❤';
+
+      heart.style.left = Math.random() * 100 + 'vw';
+
+      heart.style.fontSize =
+      Math.random() * 25 + 15 + 'px';
+
+      heart.style.animationDuration =
+      Math.random() * 5 + 5 + 's';
+
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      },10000);
+
+    }
+
+    setInterval(createHeart,300);
+
+  </script>
 
 </body>
 </html>
