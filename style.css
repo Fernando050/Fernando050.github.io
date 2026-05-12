@@ -1,54 +1,206 @@
-body {
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    font-family: Arial, sans-serif;
-    text-align: center;
-    color: white;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-.container {
-    margin-top: 100px;
+body{
+  background:linear-gradient(135deg,#ff4b91,#ff758c,#ff7eb3);
+  overflow-x:hidden;
+  color:white;
 }
 
-h1 {
-    font-size: 40px;
+/* COEURS */
+
+.hearts{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  overflow:hidden;
+  z-index:-1;
 }
 
-.message {
-    font-size: 18px;
-    margin: 15px;
+.heart{
+  position:absolute;
+  bottom:-50px;
+  color:rgba(255,255,255,0.5);
+  animation:float 10s linear infinite;
+  font-size:20px;
 }
 
-.buttons {
-    margin: 20px;
+@keyframes float{
+
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+/* HEADER */
+
+header{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
 }
 
-button:hover {
-    transform: scale(1.1);
+.hero{
+  max-width:700px;
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(10px);
+  border-radius:30px;
+  padding:50px 30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+  animation:fadeIn 2s ease;
 }
 
-button:first-child {
-    background-color: #28a745;
-    color: white;
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-button:last-child {
-    background-color: #dc3545;
-    color: white;
+.hero h1{
+  font-size:3rem;
+  margin-bottom:20px;
 }
 
-/* Bouton WhatsApp */
-.whatsapp {
-    background-color: #25D366;
-    color: white;
-    margin-top: 20px;
+.hero p{
+  font-size:1.2rem;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+/* BOUTON */
+
+.love-btn{
+  display:inline-block;
+  padding:15px 35px;
+  background:white;
+  color:#ff2e78;
+  text-decoration:none;
+  border-radius:50px;
+  font-weight:700;
+  transition:0.3s;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.love-btn:hover{
+  transform:scale(1.08);
+  background:#ffe6ef;
+}
+
+/* GALLERY */
+
+.gallery{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.gallery h2{
+  font-size:2.5rem;
+  margin-bottom:40px;
+}
+
+.photos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.photo-card{
+  background:rgba(255,255,255,0.15);
+  border-radius:25px;
+  overflow:hidden;
+  backdrop-filter:blur(8px);
+  transition:0.4s;
+}
+
+.photo-card:hover{
+  transform:translateY(-10px);
+}
+
+.photo-card img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+}
+
+.photo-card p{
+  padding:15px;
+  font-size:1rem;
+}
+
+/* MESSAGE */
+
+.message{
+  padding:100px 20px;
+  text-align:center;
+}
+
+.message-box{
+  max-width:800px;
+  margin:auto;
+  background:rgba(255,255,255,0.12);
+  padding:50px 30px;
+  border-radius:30px;
+  backdrop-filter:blur(10px);
+}
+
+.message-box h2{
+  font-size:2.5rem;
+  margin-bottom:25px;
+}
+
+.message-box p{
+  font-size:1.2rem;
+  line-height:2;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:0.9rem;
+  background:rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:2.2rem;
+  }
+
+  .hero p,
+  .message-box p{
+    font-size:1rem;
+  }
+
 }
