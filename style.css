@@ -2,205 +2,271 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
-  background:linear-gradient(135deg,#ff4b91,#ff758c,#ff7eb3);
-  overflow-x:hidden;
+  background:linear-gradient(-45deg,#0f172a,#1e3a8a,#0f766e,#111827);
+  background-size:400% 400%;
+  animation:bgAnimation 12s ease infinite;
   color:white;
 }
 
-/* COEURS */
-
-.hearts{
-  position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
-  overflow:hidden;
-  z-index:-1;
-}
-
-.heart{
-  position:absolute;
-  bottom:-50px;
-  color:rgba(255,255,255,0.5);
-  animation:float 10s linear infinite;
-  font-size:20px;
-}
-
-@keyframes float{
-
+@keyframes bgAnimation{
   0%{
-    transform:translateY(0) rotate(0deg);
-    opacity:0;
+    background-position:0% 50%;
   }
 
-  10%{
-    opacity:1;
+  50%{
+    background-position:100% 50%;
   }
 
   100%{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
+    background-position:0% 50%;
   }
 }
 
-/* HEADER */
-
 header{
-  min-height:100vh;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:fixed;
+  top:0;
+  z-index:1000;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
+}
+
+.logo h1{
+  font-size:40px;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:white;
+  text-shadow:0 0 15px cyan;
+}
+
+.logo h1 span{
+  color:#00ffff;
+}
+
+.logo p{
+  font-size:14px;
+  color:#ddd;
+}
+
+nav{
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  transition:0.4s;
+}
+
+nav a:hover{
+  color:#00ffff;
+}
+
+.hero{
+  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
+  position:relative;
   padding:20px;
 }
 
-.hero{
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
   max-width:700px;
-  background:rgba(255,255,255,0.12);
-  backdrop-filter:blur(10px);
-  border-radius:30px;
-  padding:50px 30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.25);
-  animation:fadeIn 2s ease;
 }
 
-@keyframes fadeIn{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-.hero h1{
-  font-size:3rem;
+.hero-content h2{
+  font-size:60px;
   margin-bottom:20px;
 }
 
-.hero p{
-  font-size:1.2rem;
-  line-height:1.8;
+.hero-content h2 span{
+  color:#00ffff;
+  text-shadow:0 0 20px cyan;
+}
+
+.hero-content p{
+  font-size:20px;
   margin-bottom:30px;
+  line-height:1.7;
 }
 
-/* BOUTON */
-
-.love-btn{
-  display:inline-block;
+.btn{
   padding:15px 35px;
-  background:white;
-  color:#ff2e78;
-  text-decoration:none;
+  background:#00ffff;
+  color:black;
   border-radius:50px;
-  font-weight:700;
-  transition:0.3s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-
-.love-btn:hover{
-  transform:scale(1.08);
-  background:#ffe6ef;
-}
-
-/* GALLERY */
-
-.gallery{
-  padding:80px 20px;
-  text-align:center;
-}
-
-.gallery h2{
-  font-size:2.5rem;
-  margin-bottom:40px;
-}
-
-.photos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.photo-card{
-  background:rgba(255,255,255,0.15);
-  border-radius:25px;
-  overflow:hidden;
-  backdrop-filter:blur(8px);
+  text-decoration:none;
+  font-weight:bold;
   transition:0.4s;
 }
 
-.photo-card:hover{
-  transform:translateY(-10px);
+.btn:hover{
+  background:white;
+  transform:scale(1.1);
 }
 
-.photo-card img{
+.products{
+  padding:100px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:45px;
+  margin-bottom:10px;
+}
+
+.section-title p{
+  color:#ccc;
+}
+
+.product-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  transition:0.5s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+
+.card img{
   width:100%;
-  height:280px;
+  height:250px;
   object-fit:cover;
 }
 
-.photo-card p{
-  padding:15px;
-  font-size:1rem;
+.card-content{
+  padding:20px;
 }
 
-/* MESSAGE */
-
-.message{
-  padding:100px 20px;
-  text-align:center;
+.card-content h3{
+  font-size:24px;
+  margin-bottom:10px;
 }
 
-.message-box{
+.card-content p{
+  color:#ddd;
+  line-height:1.6;
+}
+
+.price{
+  margin:15px 0;
+  font-size:22px;
+  font-weight:bold;
+  color:#00ffff;
+}
+
+.whatsapp-btn{
+  display:inline-block;
+  padding:12px 20px;
+  background:#25d366;
+  color:white;
+  text-decoration:none;
+  border-radius:40px;
+  transition:0.4s;
+  font-weight:bold;
+}
+
+.whatsapp-btn:hover{
+  transform:scale(1.08);
+}
+
+.about,
+.contact{
+  padding:100px 8%;
+}
+
+.about-content{
   max-width:800px;
   margin:auto;
-  background:rgba(255,255,255,0.12);
-  padding:50px 30px;
-  border-radius:30px;
-  backdrop-filter:blur(10px);
-}
-
-.message-box h2{
-  font-size:2.5rem;
-  margin-bottom:25px;
-}
-
-.message-box p{
-  font-size:1.2rem;
+  text-align:center;
   line-height:2;
+  font-size:20px;
 }
 
-/* FOOTER */
+.contact-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.big-whatsapp{
+  padding:20px 40px;
+  background:#25d366;
+  border-radius:50px;
+  text-decoration:none;
+  color:white;
+  font-size:22px;
+  font-weight:bold;
+  transition:0.4s;
+}
+
+.big-whatsapp:hover{
+  transform:scale(1.1);
+}
 
 footer{
   text-align:center;
   padding:30px;
-  font-size:0.9rem;
-  background:rgba(0,0,0,0.15);
+  background:rgba(0,0,0,0.3);
+  margin-top:50px;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:768px){
+@media(max-width:900px){
 
-  .hero h1{
-    font-size:2.2rem;
+  header{
+    flex-direction:column;
+    gap:20px;
   }
 
-  .hero p,
-  .message-box p{
-    font-size:1rem;
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero-content h2{
+    font-size:40px;
+  }
+
+  .hero-content p{
+    font-size:18px;
   }
 
 }
