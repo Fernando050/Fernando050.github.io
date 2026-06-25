@@ -28,18 +28,26 @@ const db = getDatabase(app);
 let user = prompt("Ou se A oswa B?").toUpperCase();
 
 // 🔐 SLOT LOCK (ANTI DOUBLE CLAIM)
+import { get, set, ref } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+
+let user = prompt("Ou se A oswa B?").toUpperCase();
+
+// 🔐 LOCK REF
 const lockRef = ref(db, "locks/" + user);
 
-await runTransaction(lockRef, (current) => {
-    if (current === true) {
-        alert("Slot sa deja pran!");
-        throw "locked";
-    }
-    return true;
-}).catch(() => {
-    location.reload();
-});
+// verify si user deja pran
+const snap = await get(lockRef);
 
+if (snap.exists()) {
+    alert("Slot " + user + " deja pran!");
+    location.reload();
+} else {
+    // pran slot la
+    await set(lockRef, {
+        taken: true,
+        time: Date.now()
+    });
+}
 // 💬 CHAT REF (SIMPLE ROOM)
 const chatRef = ref(db, "chat");
 
