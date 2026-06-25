@@ -1,3 +1,5 @@
+const sound = new Audio("notification.mp3");
+sound.volume = 1;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
   getDatabase,
@@ -71,8 +73,12 @@ onChildAdded(chatRef, (data) => {
 
     chatBox.appendChild(div);
     chatBox.scrollTop = chatBox.scrollHeight;
-});
 
+    // 🔊 PLAY SOUND (sèlman si pa ou menm ki voye mesaj la)
+    if (msg.user !== user) {
+        sound.play().catch(() => {});
+    }
+});
 // 📱 PWA SERVICE WORKER
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js");
