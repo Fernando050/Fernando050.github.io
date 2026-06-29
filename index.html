@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Style Chat</title>
+<title>Chat App</title>
 
 <link rel="stylesheet" href="style.css">
 <script type="module" src="app.js"></script>
@@ -20,6 +20,7 @@
     <input id="loginPass" type="password" placeholder="Password">
 
     <button onclick="login()">Login</button>
+
     <p onclick="showRegister()" class="link">Create account</p>
   </div>
 </div>
@@ -27,35 +28,32 @@
 <!-- REGISTER -->
 <div id="registerBox" class="center hidden">
   <div class="card">
-    <h2>Create Account</h2>
+    <h2>Create Account 🆕</h2>
 
     <input id="regId" placeholder="Choose ID">
     <input id="regPass" type="password" placeholder="Password">
 
-    <button onclick="register()">Create</button>
+    <button onclick="register()">Create account</button>
+
     <p onclick="showLogin()" class="link">Back to login</p>
   </div>
 </div>
 
-<!-- CHAT APP -->
+<!-- CHAT -->
 <div id="chatBox" class="hidden">
 
-  <!-- HEADER -->
   <div class="header">
     <h3>Chat 💬</h3>
     <button onclick="logout()">X</button>
   </div>
 
-  <!-- CONTACT / CONNECT -->
   <div class="connectBox">
-    <input id="targetUser" placeholder="Enter ID user pou chat">
+    <input id="targetUser" placeholder="Enter user ID">
     <button onclick="startChat()">Start</button>
   </div>
 
-  <!-- MESSAGES -->
   <div id="messages"></div>
 
-  <!-- INPUT -->
   <div class="inputBox">
     <input id="msgInput" placeholder="Ekri mesaj...">
     <button onclick="sendMessage()">➤</button>
