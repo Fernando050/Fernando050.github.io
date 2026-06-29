@@ -23,13 +23,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-/* 🔊 SOUND */
+/* 🔊 NOTIFICATION SOUND */
 const notifSound = new Audio("https://actions.google.com/sounds/v1/notifications/notification_beep.ogg");
 
 let currentUser = "";
 let chatId = "";
 
-/* UI SWITCH */
 window.showRegister = () => {
   loginBox.classList.add("hidden");
   registerBox.classList.remove("hidden");
@@ -81,7 +80,7 @@ window.startChat = () => {
   loadMessages();
 };
 
-/* SEND */
+/* SEND MESSAGE */
 window.sendMessage = () => {
 
   if(!msgInput.value) return;
@@ -109,11 +108,13 @@ function loadMessages(){
     if(m.sender === currentUser){
       div.classList.add("me");
     } else {
+      /* 🔊 SOUND FOR INCOMING MESSAGE */
       notifSound.play().catch(()=>{});
     }
 
     div.innerHTML = `<b>${m.sender}</b><br>${m.text}`;
 
+    /* DELETE BUTTON */
     if(m.sender === currentUser){
 
       const btn = document.createElement("button");
