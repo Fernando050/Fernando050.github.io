@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat App</title>
+
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox" class="center">
+  <div class="card">
+    <h2>Login 🔐</h2>
+
+    <input id="loginId" placeholder="ID">
+    <input id="loginPass" type="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- REGISTER -->
+<div id="registerBox" class="center hidden">
+  <div class="card">
+    <h2>Register</h2>
+
+    <input id="regId" placeholder="ID">
+    <input id="regPass" type="password" placeholder="Password">
+
+    <button onclick="register()">Create</button>
+  </div>
+</div>
+
+<!-- CHAT -->
+<div id="chatBox" class="hidden">
+
+  <div class="header">
+    <h3>Private Chat 💬</h3>
+    <button onclick="logout()">X</button>
+  </div>
+
+  <!-- CONNECT -->
+  <div class="connectBox">
+    <input id="targetUser" placeholder="Antre ID moun">
+    <button onclick="startChat()">Chat</button>
+  </div>
+
+  <!-- MESSAGES -->
+  <div id="messages"></div>
+
+  <!-- INPUT -->
+  <div class="inputBox">
+    <input id="msgInput" placeholder="Ekri mesaj...">
+    <button onclick="sendMessage()">➤</button>
+  </div>
+
+</div>
+
+</body>
+</html>
